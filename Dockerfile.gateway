@@ -1,0 +1,9 @@
+#!/bin/sh
+
+FROM nginx:latest
+COPY /gateway.crt /etc/ssl/certs/gateway.crt
+COPY /gateway.key /etc/ssl/certs/gateway.key
+COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+STOPSIGNAL SIGTERM
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,11 @@
+en:
+  response:
+    titles:
+      '1xx': 'Continue'
+      '2xx': 'OK'
+      '3xx': 'Redirect'
+      '4xx': 'Bad request'
+      '5xx': 'Internal server error'
+    errors:
+      standard_error: 'We have some troubles, try again later.'
+      bad_header_content_type: 'Missing header Content-Type: application/json.'

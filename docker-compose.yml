@@ -1,0 +1,47 @@
+version: "3"
+services:
+    hidata:
+        container_name: hidata
+        image: redis:6.2.1-alpine
+        volumes:
+            - redis:/data
+        env_file:
+            - ./.env
+        restart: always
+    background:
+        container_name: background
+        build:
+            context: .
+            dockerfile: Dockerfile.app
+        volumes:
+            - .:/var/www/etlbase
+        depends_on:
+            - hidata
+        env_file:
+            - ./.env
+        command: bundle exec sidekiq -C ./config/sidekiq.yml -r ./config/initializers/background.rb
+        restart: on-failure
+    foreground:
+        container_name: foreground
+        build:
+            context: .
+            dockerfile: Dockerfile.app
+        volumes:
+            - .:/var/www/etlbase
+        env_file:
+            - ./.env
+        command: bundle exec puma -C ./config/puma.rb
+        restart: always
+    gateway:
+        container_name: gateway
+        build:
+            context: .
+            dockerfile: Dockerfile.gateway
+        depends_on:
+            - foreground
+        ports:
+            - "${GATEWAY_HTTPS_PORT}:443"
+            - "${GATEWAY_HTTP_PORT}:80"
+        restart: always
+volumes:
+    redis:
