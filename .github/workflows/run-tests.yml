@@ -22,7 +22,9 @@ jobs:
     steps:
       - name: First setup
         run: |
-          $GITHUB_WORKSPACE/task/setup.sh
+          cd $GITHUB_WORKSPACE
+          cd ../
+          ./task/setup.sh
           docker-compose build
       - name: Run tests
         run: docker-compose run background bundle exec rspec
