@@ -20,7 +20,8 @@ jobs:
     needs: rubocop
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v1
       - name: First setup
-        run: |
-          echo $(ls)
+        run: sh ./task/setup.sh -e 'test'
 
