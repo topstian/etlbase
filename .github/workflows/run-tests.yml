@@ -23,7 +23,4 @@ jobs:
       - name: First setup
         run: |
           echo $(ls)
-          docker-compose build
-      - name: Run tests
-        run: docker-compose run background bundle exec rspec
 
