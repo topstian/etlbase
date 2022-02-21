@@ -19,6 +19,8 @@ gem 'hiredis'
 gem 'rack'
 # Base Redis driver
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
+# RSpec testing framework
+gem 'rspec'
 # Secure generator
 gem 'securerandom'
 # Background processor

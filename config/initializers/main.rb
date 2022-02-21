@@ -5,6 +5,7 @@ require 'zeitwerk'
 
 loader = Zeitwerk::Loader.new
 loader.push_dir("#{__dir__}/../../lib")
+loader.push_dir("#{__dir__}/../../app/extractors")
 loader.setup
 
 require 'sidekiq'
