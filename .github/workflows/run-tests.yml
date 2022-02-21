@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: First setup
         run: |
-          etlbase/task/setup.sh
+          echo $(ls)
           docker-compose build
       - name: Run tests
         run: docker-compose run background bundle exec rspec
