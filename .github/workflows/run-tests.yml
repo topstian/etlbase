@@ -22,9 +22,7 @@ jobs:
     steps:
       - name: First setup
         run: |
-          cd $GITHUB_WORKSPACE
-          cd ../
-          ./task/setup.sh
+          etlbase/task/setup.sh
           docker-compose build
       - name: Run tests
         run: docker-compose run background bundle exec rspec
