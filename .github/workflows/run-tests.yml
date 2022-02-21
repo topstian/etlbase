@@ -24,4 +24,8 @@ jobs:
         uses: actions/checkout@v1
       - name: First setup
         run: sh ./task/setup.sh -e 'test'
+      - name: Build
+        run: docker-compose build
+      - name: Run tests
+        run: docker-compose run background bundle exec rspec
 
