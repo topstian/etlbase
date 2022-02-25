@@ -3,6 +3,7 @@
 *.env
 *.key
 *.crt
+*.DS_Store
 /.config
 /coverage/
 /InstalledFiles

@@ -1,0 +1,7 @@
+:concurrency: <%= ENV.fetch('BACKGROUND_SIDEKIQ_CONCURRENCY', 10).to_i %>
+
+queues:
+  - [default, 0]
+  - [low, 1]
+  - [medium, 2]
+  - [high, 3]
