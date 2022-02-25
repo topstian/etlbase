@@ -4,7 +4,7 @@ Bundler.require(:default)
 require 'zeitwerk'
 
 loader = Zeitwerk::Loader.new
-ZEITWERK_PUSH_DIRS = ['lib', 'app/extractors', 'app/jobs'].freeze
+ZEITWERK_PUSH_DIRS = ['lib', 'app/extractors'].freeze
 ZEITWERK_PUSH_DIRS.each { |d| loader.push_dir("#{__dir__}/../../#{d}") }
 loader.setup
 
