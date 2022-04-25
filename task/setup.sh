@@ -6,8 +6,8 @@ while getopts "e:" arg; do
   esac
 done
 
-echo -e "[ETLBASE] Initializing setup"
-echo -e "[ETLBASE] SSL Self-Signed certificates generator"
+echo -e "Initializing setup"
+echo -e "SSL Self-Signed certificates generator"
 case $environment in
   'test') openssl req -nodes -newkey rsa:2048 -keyout gateway.key -out gateway.crt -subj "/C=CL/ST=Santiago/L=Santiago/O=etlbase/OU=etlbase/CN=localhost";;
   *) openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout gateway.key -out gateway.crt;;

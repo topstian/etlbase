@@ -1,4 +1,6 @@
 AllCops:
   NewCops: enable
-Style/ClassAndModuleChildren:
+Style/FrozenStringLiteralComment:
   Enabled: false
+Metrics/BlockLength:
+  IgnoredMethods: ['feature']
