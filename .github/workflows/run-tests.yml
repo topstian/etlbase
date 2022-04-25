@@ -29,5 +29,5 @@ jobs:
       - name: Build
         run: docker-compose build
       - name: Run tests
-        run: docker-compose run background bundle exec rspec
+        run: docker-compose run backend bundle exec rspec
 
