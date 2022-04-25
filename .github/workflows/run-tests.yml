@@ -22,12 +22,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v1
-      - name: First setup
-        run: |
-          sh ./task/setup.sh -e 'test'
-          touch .env
-      - name: Build
-        run: docker-compose build
+      - name: Custom setup
+        run: openssl req -nodes -newkey rsa:2048 -keyout gateway.key -out gateway.crt -subj "/C=CL/ST=Santiago/L=Santiago/O=etlbase/OU=etlbase/CN=localhost"
+      - name: Touch .env
+        run: touch .env
       - name: Run tests
-        run: docker-compose run backend bundle exec rspec
+        run: sh ./tasks/run_tests.sh
 
