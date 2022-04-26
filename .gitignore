@@ -1,6 +1,9 @@
 *.gem
 *.rbc
 *.env
+.env.production
+.env.development
+.env.test
 *.key
 *.crt
 *.DS_Store

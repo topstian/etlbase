@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 ruby '3.0.3'
 
@@ -19,8 +17,6 @@ gem 'hiredis'
 gem 'rack'
 # Base Redis driver
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
-# RSpec testing framework
-gem 'rspec'
 # Secure generator
 gem 'securerandom'
 # Background processor
@@ -35,3 +31,10 @@ gem 'sinatra-contrib'
 gem 'typhoeus'
 # Code loader like magic
 gem 'zeitwerk'
+
+group :test, :development do
+  # Acceptance framework
+  gem 'capybara'
+  # RSpec testing framework
+  gem 'rspec'
+end
