@@ -3,7 +3,7 @@ source ./config/tasks.conf
 
 STAGE="development"
 
-while getopts "e:" arg; do
+while getopts "env:" arg; do
   case $arg in
     e) STAGE=$OPTARG;;
   esac
