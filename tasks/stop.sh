@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./config/tasks.conf
+source ./tasks/helpers/task_helper.sh
 
 echo "${OUTPUT_COLOR}Stopping containers"
 docker-compose down --remove-orphans

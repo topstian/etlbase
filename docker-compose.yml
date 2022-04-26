@@ -2,42 +2,44 @@ version: "3"
 services:
     hidata:
         image: redis:6.2.1-alpine
-        volumes:
-            - redis:/data
         env_file:
             - ./.env
-        restart: always
+        volumes:
+            - redis:/data
+        restart: "${HIDATA_RESTART_POLICY:-no}"
     backend:
         build:
             context: .
             dockerfile: Dockerfile.app
+        env_file:
+            - ./.env
         volumes:
             - .:/var/www/etlbase
         depends_on:
             - hidata
-        env_file:
-            - ./.env
         command: bundle exec sidekiq -C ./config/sidekiq.yml -r ./config/initializers/backend.rb
-        restart: on-failure
+        restart: "${BACKEND_RESTART_POLICY:-no}"
     frontend:
         build:
             context: .
             dockerfile: Dockerfile.app
-        volumes:
-            - .:/var/www/etlbase
         env_file:
             - ./.env
+        volumes:
+            - .:/var/www/etlbase
         command: bundle exec puma -C ./config/puma.rb
-        restart: always
+        restart: "${FRONTEND_RESTART_POLICY:-no}"
     gateway:
         build:
             context: .
             dockerfile: Dockerfile.gateway
+        env_file:
+            - ./.env
         depends_on:
             - frontend
         ports:
             - "${GATEWAY_HTTPS_PORT:-443}:443"
             - "${GATEWAY_HTTP_PORT:-80}:80"
-        restart: always
+        restart: "${GATEWAY_RESTART_POLICY:-no}"
 volumes:
     redis:
