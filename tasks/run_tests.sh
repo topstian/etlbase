@@ -1,8 +1,6 @@
 #!/bin/bash
 source ./tasks/helpers/task_helper.sh
 
-STAGE="test"
-
 echo "${OUTPUT_COLOR}Building image"
 docker-compose build
 echo "${OUTPUT_COLOR}Running tests"

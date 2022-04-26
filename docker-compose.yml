@@ -3,7 +3,7 @@ services:
     hidata:
         image: redis:6.2.1-alpine
         env_file:
-            - ./.env.${STAGE:-development}
+            - ./.env
         volumes:
             - redis:/data
         restart: "${HIDATA_RESTART_POLICY:-no}"
@@ -12,7 +12,7 @@ services:
             context: .
             dockerfile: Dockerfile.app
         env_file:
-            - ./.env.${STAGE:-development}
+            - ./.env
         volumes:
             - .:/var/www/etlbase
         depends_on:
@@ -24,7 +24,7 @@ services:
             context: .
             dockerfile: Dockerfile.app
         env_file:
-            - ./.env.${STAGE:-development}
+            - ./.env
         volumes:
             - .:/var/www/etlbase
         command: bundle exec puma -C ./config/puma.rb
@@ -34,7 +34,7 @@ services:
             context: .
             dockerfile: Dockerfile.gateway
         env_file:
-            - ./.env.${STAGE:-development}
+            - ./.env
         depends_on:
             - frontend
         ports:
