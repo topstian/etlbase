@@ -1,6 +1,7 @@
 Bundler.require(:default, ENV.fetch('STAGE', 'development').to_sym)
+
 loader = Zeitwerk::Loader.new
-ZEITWERK_PUSH_DIRS = ['lib', 'app/extractors', 'app/jobs', 'app/transformers'].freeze
+ZEITWERK_PUSH_DIRS = ['lib', 'app/extractors', 'app/jobs', 'app/transformers', 'app/loaders'].freeze
 ZEITWERK_PUSH_DIRS.each { |d| loader.push_dir("#{__dir__}/../../#{d}") }
 loader.setup
 
