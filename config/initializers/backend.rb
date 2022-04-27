@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'main'
 
 # If you have background/actions to run with cron, schedule here
