@@ -1,2 +1,4 @@
 # Load the result of the transformation
-class DemoLoader; end
+class DemoLoader
+  include EtlHelper
+end

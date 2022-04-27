@@ -1,2 +1,2 @@
-# Main App helper
+# Main app helper
 module ApplicationHelper; end
