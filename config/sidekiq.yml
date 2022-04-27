@@ -1,4 +1,4 @@
-:concurrency: <%= ENV.fetch('BACKGROUND_SIDEKIQ_CONCURRENCY', 10).to_i %>
+:concurrency: <%= ENV.fetch('BACKEND_SIDEKIQ_CONCURRENCY', 10).to_i %>
 
 queues:
   - [default, 0]

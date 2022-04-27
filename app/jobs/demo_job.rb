@@ -1,4 +1,4 @@
-# Connecting process
+# ETL Runner
 class DemoJob
   include JobHelper
 
