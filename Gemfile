@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '3.0.3'
 
+# ActiveSupport
+gem 'activesupport'
 # Wraps connections inside a pool
 gem 'connection_pool'
 # Minimalistic I18n
