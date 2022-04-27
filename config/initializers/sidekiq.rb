@@ -3,6 +3,7 @@ require 'sidekiq/web'
 require 'sidekiq/worker_killer'
 require 'sidekiq-cron'
 
+# Overrides default JSON parser
 module Sidekiq
   def self.load_json(string)
     ::Jsonizer.load(string, mode: :strict).with_indifferent_access
